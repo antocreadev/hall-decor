@@ -117,7 +117,7 @@ function Home() {
           <p className="eyebrow md:pt-3">La maison</p>
           <p className="font-display max-w-4xl text-[clamp(1.8rem,4vw,3.4rem)] font-light leading-[1.18] tracking-[-0.01em] text-ink">
             Depuis Bastia, hall décor habille les intérieurs de toute la Corse. Du papier peint qu'on pose au plaid qu'on
-            jette sur le canapé, <span className="text-stone">le même soin, du sol au plafond.</span>
+            jette sur le canapé, <span className="text-flow">le même soin, du sol au plafond.</span>
           </p>
         </Reveal>
       </section>
@@ -125,7 +125,7 @@ function Home() {
       {/* ── FEATURED ─────────────────────────────────────────── */}
       <section className="mx-auto max-w-[1600px] px-6 md:px-10">
         <div className="flex items-baseline justify-between border-t border-line py-8">
-          <h2 className="font-display text-2xl font-medium tracking-tight text-ink">Nos coups de cœur</h2>
+          <h2 className="font-display text-flow text-2xl font-medium tracking-tight">Nos coups de cœur</h2>
           <Link to="/boutique" className="link-quiet text-sm text-stone hover:text-ink">
             Tout voir
           </Link>
@@ -140,14 +140,14 @@ function Home() {
       </section>
 
       {/* ── UNIVERS DRIFT ────────────────────────────────────── */}
-      <section className="drift-wrap mt-24 overflow-hidden border-y border-line py-10">
+      <section className="drift-wrap mt-24 overflow-hidden bg-ink py-12">
         <div className="flex w-max drift gap-12 whitespace-nowrap will-change-transform">
           {[0, 1].map((dup) => (
             <span key={dup} className="flex gap-12" aria-hidden={dup === 1}>
               {univers.map((m) => (
-                <span key={m} className="font-display text-3xl font-light tracking-tight text-ink/80 md:text-5xl">
+                <span key={m} className="font-display text-3xl font-light tracking-tight text-clay-soft md:text-5xl">
                   {m}
-                  <span className="px-12 text-patina">·</span>
+                  <span className="px-12 text-patina-soft">·</span>
                 </span>
               ))}
             </span>
@@ -160,10 +160,10 @@ function Home() {
         <Reveal className="grid items-end gap-10 md:grid-cols-2">
           <h2 className="font-display text-[clamp(2.2rem,5vw,4.5rem)] font-light leading-[1.04] tracking-[-0.02em] text-ink">
             <span className="mask-line">
-              <span>Venez nous voir,</span>
+              <span className="text-flow">Venez nous voir,</span>
             </span>
             <span className="mask-line">
-              <span style={{ "--line-i": 1 } as React.CSSProperties}>le café est offert.</span>
+              <span className="text-flow" style={{ "--line-i": 1 } as React.CSSProperties}>le café est offert.</span>
             </span>
           </h2>
           <div className="md:pb-3">

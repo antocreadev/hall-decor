@@ -14,7 +14,7 @@ function Contact() {
     <div className="mx-auto max-w-[1600px] px-6 pt-16 md:px-10 md:pt-24">
       <header className="grid gap-10 border-b border-line pb-16 md:grid-cols-[auto_1fr] md:gap-24">
         <p className="eyebrow md:pt-3">Correspondance</p>
-        <h1 className="font-display max-w-3xl text-[clamp(2.6rem,7vw,5.5rem)] font-light leading-[0.98] tracking-[-0.025em] text-ink">
+        <h1 className="font-display max-w-3xl text-[clamp(2.6rem,7vw,5.5rem)] font-light leading-[0.98] tracking-[-0.025em] text-flow">
           Écrivez‑nous.
         </h1>
       </header>
