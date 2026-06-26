@@ -16,8 +16,9 @@
   /* hall décor brand accent — petrol blue + a terracotta to echo the scenes */
   --color-patina: #265879;
   --color-patina-soft: #3f7799;
-  --color-clay: #b0603f;
-  --color-clay-soft: #c77f55;
+  /* marron cuir / cognac */
+  --color-clay: #6f4a2b;
+  --color-clay-soft: #9a6f44;
   --color-fir: #2f4a39;
   --color-fir-soft: #5a7d63;
 
@@ -80,6 +81,11 @@ body {
   font-family: var(--font-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+/* on the dark footer, use the lighter cognac so labels stay readable */
+footer .eyebrow {
+  color: var(--color-clay-soft);
 }
 
 /* Newsreader display — refined editorial serif */
