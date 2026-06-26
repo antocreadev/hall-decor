@@ -26,16 +26,11 @@ function Home() {
       {/* ── HERO — full-bleed fabric ─────────────────────────── */}
       <section className="relative -mt-[73px] flex h-[94vh] min-h-[580px] w-full items-end overflow-hidden bg-ink">
         <Parallax speed={0.16} className="absolute -top-[8%] left-0 h-[116%] w-full">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 h-full w-full object-cover"
-          >
-            <source src="/video/magasin.mp4" type="video/mp4" />
-          </video>
+          <img
+            src="/scene/papier-peint-posidonie.jpg"
+            alt="Ambiance papier peint Posidonie — hall décor"
+            className="kenburns absolute inset-0 h-full w-full object-cover object-center"
+          />
         </Parallax>
         <div className="scrim absolute inset-0" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-16 md:px-10 md:pb-24">
