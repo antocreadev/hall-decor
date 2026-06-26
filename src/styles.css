@@ -6,13 +6,13 @@
    Deliberately not the cream + terracotta default.
    ───────────────────────────────────────────────────────────── */
 @theme {
-  /* fresh warm-ivory canvas — brighter, less drab */
-  --color-paper: #f3ede0;
-  --color-surface: #fbf8f1;
+  /* light-brown canvas (café au lait) */
+  --color-paper: #d3c0a0;
+  --color-surface: #e7dcc7;
   --color-ink: #1a1916;
-  --color-ink-soft: #383631;
-  --color-stone: #837e72;
-  --color-line: #e3ddcd;
+  --color-ink-soft: #3a3730;
+  --color-stone: #786e5c;
+  --color-line: #c2b08d;
   /* hall décor brand accent — petrol blue + a terracotta to echo the scenes */
   --color-patina: #265879;
   --color-patina-soft: #3f7799;
