@@ -5,6 +5,7 @@ import { Reveal } from "#/components/Reveal"
 import { ProductCard } from "#/components/ProductCard"
 import { Parallax } from "#/components/Parallax"
 import { Magnetic } from "#/components/Magnetic"
+import { HeroSlideshow } from "#/components/HeroSlideshow"
 import { collections, products, univers } from "#/lib/catalogue"
 
 export const Route = createFileRoute("/")({ component: Home })
@@ -24,13 +25,9 @@ function Home() {
   return (
     <>
       {/* ── HERO — full-bleed fabric ─────────────────────────── */}
-      <section className="relative -mt-[73px] flex h-[94vh] min-h-[580px] w-full items-end overflow-hidden bg-ink">
+      <section className="relative -mt-[73px] flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-ink">
         <Parallax speed={0.16} className="absolute -top-[8%] left-0 h-[116%] w-full">
-          <img
-            src="/scene/papier-peint-posidonie.jpg"
-            alt="Ambiance papier peint Posidonie — hall décor"
-            className="kenburns absolute inset-0 h-full w-full object-cover object-center"
-          />
+          <HeroSlideshow />
         </Parallax>
         <div className="scrim absolute inset-0" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-16 md:px-10 md:pb-24">
@@ -140,14 +137,14 @@ function Home() {
       </section>
 
       {/* ── UNIVERS DRIFT ────────────────────────────────────── */}
-      <section className="drift-wrap mt-24 overflow-hidden bg-ink py-12">
+      <section className="drift-wrap mt-24 overflow-hidden border-y border-line py-10">
         <div className="flex w-max drift gap-12 whitespace-nowrap will-change-transform">
           {[0, 1].map((dup) => (
             <span key={dup} className="flex gap-12" aria-hidden={dup === 1}>
               {univers.map((m) => (
-                <span key={m} className="font-display text-3xl font-light tracking-tight text-clay-soft md:text-5xl">
+                <span key={m} className="font-display text-3xl font-light tracking-tight text-clay md:text-5xl">
                   {m}
-                  <span className="px-12 text-fir-soft">·</span>
+                  <span className="px-12 text-fir">·</span>
                 </span>
               ))}
             </span>

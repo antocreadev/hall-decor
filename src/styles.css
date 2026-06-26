@@ -6,13 +6,13 @@
    Deliberately not the cream + terracotta default.
    ───────────────────────────────────────────────────────────── */
 @theme {
-  /* neutral warm-stone canvas — colour comes from the products */
-  --color-paper: #e9e4da;
-  --color-surface: #f3f0e9;
-  --color-ink: #17181b;
-  --color-ink-soft: #34363b;
-  --color-stone: #7a766d;
-  --color-line: #d4cfc4;
+  /* fresh warm-ivory canvas — brighter, less drab */
+  --color-paper: #f3ede0;
+  --color-surface: #fbf8f1;
+  --color-ink: #1a1916;
+  --color-ink-soft: #383631;
+  --color-stone: #837e72;
+  --color-line: #e3ddcd;
   /* hall décor brand accent — petrol blue + a terracotta to echo the scenes */
   --color-patina: #265879;
   --color-patina-soft: #3f7799;
@@ -212,6 +212,38 @@ body {
   animation: kenburns 24s ease-in-out infinite alternate;
   will-change: transform;
 }
+
+/* multi-image hero slideshow — crossfade between scenes */
+@keyframes hero-slide {
+  0% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 1;
+  }
+  23% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.hero-slide {
+  opacity: 0;
+  animation: hero-slide 45s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  .hero-slide:first-child {
+    opacity: 1 !important;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .kenburns {
     animation: none !important;
@@ -222,12 +254,13 @@ body {
 /* readability scrim over fabric imagery — top band for the header, diagonal for text */
 .scrim {
   background:
-    linear-gradient(180deg, rgba(17, 18, 21, 0.5) 0%, rgba(17, 18, 21, 0.05) 20%, transparent 32%),
+    linear-gradient(180deg, rgba(17, 18, 21, 0.4) 0%, rgba(17, 18, 21, 0.06) 20%, transparent 34%),
+    linear-gradient(180deg, transparent 58%, rgba(17, 18, 21, 0.34) 100%),
     linear-gradient(
-      72deg,
-      rgba(17, 18, 21, 0.72) 0%,
-      rgba(17, 18, 21, 0.4) 44%,
-      rgba(17, 18, 21, 0.12) 74%,
+      75deg,
+      rgba(17, 18, 21, 0.68) 0%,
+      rgba(17, 18, 21, 0.34) 44%,
+      rgba(17, 18, 21, 0.1) 74%,
       transparent 100%
     );
 }
