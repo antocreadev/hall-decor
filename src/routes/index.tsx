@@ -5,7 +5,6 @@ import { Reveal } from "#/components/Reveal"
 import { ProductCard } from "#/components/ProductCard"
 import { Parallax } from "#/components/Parallax"
 import { Magnetic } from "#/components/Magnetic"
-import { HeroSlideshow } from "#/components/HeroSlideshow"
 import { collections, products, univers } from "#/lib/catalogue"
 
 export const Route = createFileRoute("/")({ component: Home })
@@ -27,7 +26,16 @@ function Home() {
       {/* ── HERO — full-bleed fabric ─────────────────────────── */}
       <section className="relative -mt-[73px] flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-ink">
         <Parallax speed={0.16} className="absolute -top-[8%] left-0 h-[116%] w-full">
-          <HeroSlideshow />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/video/magasin.mp4" type="video/mp4" />
+          </video>
         </Parallax>
         <div className="scrim absolute inset-0" />
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-16 md:px-10 md:pb-24">
