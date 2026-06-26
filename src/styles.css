@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   hall decor — design tokens  ·  « Gesso & Patine »
+   Cool-plaster neutrals, warm ink, oxidised-green accent.
+   Deliberately not the cream + terracotta default.
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  /* neutral warm-stone canvas — colour comes from the products */
+  --color-paper: #e9e4da;
+  --color-surface: #f3f0e9;
+  --color-ink: #17181b;
+  --color-ink-soft: #34363b;
+  --color-stone: #7a766d;
+  --color-line: #d4cfc4;
+  /* hall décor brand accent — petrol blue, used sparingly */
+  --color-patina: #265879;
+  --color-patina-soft: #3f7799;
+
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-label: "Josefin Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  font-feature-settings: "ss01", "cv05";
+}
+
+::selection {
+  background: var(--color-patina);
+  color: var(--color-paper);
+}
+
+/* logo: black-on-white mark blends into the warm paper */
+.logo-blend {
+  mix-blend-mode: multiply;
+}
+
+/* ── Editorial primitives ─────────────────────────────────── */
+/* uppercase letter-spaced label — Josefin (brand font), à la Rubelli / de Le Cuona */
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+.label {
+  font-family: var(--font-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Newsreader display — refined editorial serif */
+.font-display {
+  font-optical-sizing: auto;
+}
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+/* underline-on-hover for editorial links */
+.link-quiet {
+  position: relative;
+  display: inline-block;
+}
+.link-quiet::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-editorial);
+}
+.link-quiet:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ── Grain / material texture overlay ─────────────────────── */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Scroll reveal ────────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.9s var(--ease-editorial),
+    transform 0.9s var(--ease-editorial);
+  transition-delay: calc(var(--reveal-i, 0) * 90ms);
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Hero word load reveal ────────────────────────────────── */
+@keyframes word-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em) rotate(1.2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+.word-rise > span {
+  display: inline-block;
+  animation: word-rise 0.95s var(--ease-editorial) both;
+  animation-delay: calc(var(--word-i, 0) * 95ms + 120ms);
+}
+
+/* ── Marquee (collections ticker) ─────────────────────────── */
+@keyframes drift {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.drift {
+  animation: drift 38s linear infinite;
+}
+.drift-wrap:hover .drift {
+  animation-play-state: paused;
+}
+
+/* ── Specimen material field hover ────────────────────────── */
+.specimen-img {
+  transition: transform 1.1s var(--ease-editorial);
+}
+.specimen:hover .specimen-img {
+  transform: scale(1.04);
+}
+
+/* ── Full-bleed fabric hero ───────────────────────────────── */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.18);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+.hero-zoom {
+  transform: scale(1.06);
+  animation: hero-zoom 2.2s var(--ease-editorial) both;
+  will-change: transform;
+}
+
+/* readability scrim over fabric imagery — top band for the header, diagonal for text */
+.scrim {
+  background:
+    linear-gradient(180deg, rgba(17, 18, 21, 0.5) 0%, rgba(17, 18, 21, 0.05) 20%, transparent 32%),
+    linear-gradient(
+      72deg,
+      rgba(17, 18, 21, 0.72) 0%,
+      rgba(17, 18, 21, 0.4) 44%,
+      rgba(17, 18, 21, 0.12) 74%,
+      transparent 100%
+    );
+}
+
+/* slow image reveal — clip + scale settle */
+[data-reveal].reveal-img {
+  opacity: 1;
+}
+[data-reveal].reveal-img > * {
+  clip-path: inset(0 0 14% 0);
+  transform: scale(1.08);
+  transition:
+    clip-path 1.2s var(--ease-editorial),
+    transform 1.4s var(--ease-editorial);
+}
+[data-reveal].reveal-img.is-visible > * {
+  clip-path: inset(0 0 0 0);
+  transform: scale(1);
+}
+
+/* ── Card image wipe-in on scroll ─────────────────────────── */
+.card-media {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.1s var(--ease-editorial);
+}
+[data-reveal]:not(.is-visible) .card-media {
+  clip-path: inset(0 0 16% 0);
+}
+
+/* ── Heading lines rising from a mask ─────────────────────── */
+.mask-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+.mask-line > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 1.1s var(--ease-editorial);
+  transition-delay: calc(var(--line-i, 0) * 110ms);
+}
+[data-reveal].is-visible .mask-line > span,
+.is-visible.mask-line > span {
+  transform: translateY(0);
+}
+
+/* ── Magnetic control ─────────────────────────────────────── */
+.magnetic {
+  transition: transform 0.4s var(--ease-editorial);
+  will-change: transform;
+}
+
+/* ── Animated hairline draw-in ────────────────────────────── */
+.draw-line {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1s var(--ease-editorial);
+}
+[data-reveal].is-visible .draw-line,
+.is-visible .draw-line {
+  transform: scaleX(1);
+}
+
+/* ── Reduced motion: keep it still ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal],
+  [data-reveal].reveal-img > *,
+  .word-rise > span,
+  .drift,
+  .specimen-img,
+  .hero-zoom,
+  .card-media,
+  .mask-line > span,
+  .magnetic,
+  .draw-line,
+  .link-quiet::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
+
+/* ── Focus visibility (quality floor) ─────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-patina);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
