@@ -8,13 +8,13 @@ export function Footer() {
   const [sent, setSent] = useState(false)
 
   return (
-    <footer className="mt-32 border-t border-line bg-surface">
+    <footer className="mt-32 bg-ink text-paper">
       <div className="mx-auto max-w-[1600px] px-6 py-20 md:px-10">
         {/* newsletter */}
-        <div className="grid gap-12 border-b border-line pb-16 md:grid-cols-[1.1fr_1fr] md:gap-24">
+        <div className="grid gap-12 border-b border-paper/12 pb-16 md:grid-cols-[1.1fr_1fr] md:gap-24">
           <div>
             <p className="eyebrow">Correspondance</p>
-            <h2 className="font-display mt-4 max-w-md text-3xl font-light leading-[1.1] tracking-tight text-ink md:text-4xl">
+            <h2 className="font-display mt-4 max-w-md text-3xl font-light leading-[1.1] tracking-tight text-paper md:text-4xl">
               Les nouvelles pièces, l'avant‑première des éditions, rien d'autre.
             </h2>
           </div>
@@ -26,19 +26,19 @@ export function Footer() {
             }}
           >
             {sent ? (
-              <p className="font-mono text-sm text-patina">— Inscription reçue. À très vite.</p>
+              <p className="font-mono text-sm text-clay-soft">— Inscription reçue. À très vite.</p>
             ) : (
-              <div className="flex items-center gap-3 border-b border-ink pb-3">
+              <div className="flex items-center gap-3 border-b border-paper/30 pb-3">
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="votre@adresse.fr"
-                  className="w-full bg-transparent text-lg text-ink placeholder:text-stone focus:outline-none"
+                  className="w-full bg-transparent text-lg text-paper placeholder:text-paper/35 focus:outline-none"
                   aria-label="Adresse e-mail"
                 />
-                <button type="submit" className="text-ink transition-transform hover:translate-x-1" aria-label="S'inscrire">
+                <button type="submit" className="text-paper transition-transform hover:translate-x-1" aria-label="S'inscrire">
                   <ArrowRight size={22} strokeWidth={1.5} />
                 </button>
               </div>
@@ -56,7 +56,7 @@ export function Footer() {
                 key={c.name}
                 to="/boutique"
                 search={{ collection: c.name }}
-                className="link-quiet w-fit text-sm text-stone hover:text-ink"
+                className="link-quiet w-fit text-sm text-paper/55 hover:text-paper"
               >
                 {c.name}
               </Link>
@@ -64,21 +64,21 @@ export function Footer() {
           </nav>
           <nav className="flex flex-col gap-3">
             <p className="eyebrow mb-2">Maison</p>
-            <Link to="/atelier" className="link-quiet w-fit text-sm text-stone hover:text-ink">L'atelier</Link>
-            <Link to="/atelier" className="link-quiet w-fit text-sm text-stone hover:text-ink">Savoir‑faire</Link>
-            <Link to="/contact" className="link-quiet w-fit text-sm text-stone hover:text-ink">Nous écrire</Link>
+            <Link to="/atelier" className="link-quiet w-fit text-sm text-paper/55 hover:text-paper">L'atelier</Link>
+            <Link to="/atelier" className="link-quiet w-fit text-sm text-paper/55 hover:text-paper">Savoir‑faire</Link>
+            <Link to="/contact" className="link-quiet w-fit text-sm text-paper/55 hover:text-paper">Nous écrire</Link>
           </nav>
           <nav className="flex flex-col gap-3">
             <p className="eyebrow mb-2">Service</p>
-            <span className="text-sm text-stone">Click &amp; collect</span>
-            <span className="text-sm text-stone">Livraison Corse &amp; continent</span>
-            <span className="text-sm text-stone">Conseil décoration</span>
+            <span className="text-sm text-paper/55">Click &amp; collect</span>
+            <span className="text-sm text-paper/55">Livraison Corse &amp; continent</span>
+            <span className="text-sm text-paper/55">Conseil décoration</span>
           </nav>
           <div className="flex flex-col gap-3">
             <p className="eyebrow mb-2">Magasin</p>
-            <span className="text-sm text-stone">RN 193 · Rond‑point de Montesoro</span>
-            <span className="text-sm text-stone">20600 Bastia</span>
-            <a href="mailto:bonjour@halldecor.fr" className="link-quiet w-fit text-sm text-stone hover:text-ink">
+            <span className="text-sm text-paper/55">RN 193 · Rond‑point de Montesoro</span>
+            <span className="text-sm text-paper/55">20600 Bastia</span>
+            <a href="mailto:bonjour@halldecor.fr" className="link-quiet w-fit text-sm text-paper/55 hover:text-paper">
               bonjour@halldecor.fr
             </a>
           </div>
@@ -86,12 +86,12 @@ export function Footer() {
 
         {/* oversized wordmark */}
         <div className="overflow-hidden">
-          <p className="font-display select-none whitespace-nowrap text-[16vw] font-light leading-[0.82] tracking-[-0.04em] text-ink/90 md:text-[12vw]">
+          <p className="font-display select-none whitespace-nowrap text-[16vw] font-light leading-[0.82] tracking-[-0.04em] text-paper/90 md:text-[12vw]">
             hall décor
           </p>
         </div>
 
-        <div className="mt-8 flex flex-col gap-2 border-t border-line pt-6 text-stone sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-2 border-t border-paper/12 pt-6 text-paper/45 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-mono text-xs">© 2026 hall décor — Décoration, Bastia</p>
           <p className="font-mono text-xs">RN 193, Montesoro · Haute‑Corse</p>
         </div>
