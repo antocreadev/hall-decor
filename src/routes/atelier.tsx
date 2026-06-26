@@ -74,7 +74,7 @@ function Atelier() {
           <img src={b.image} alt={b.name} className="h-full w-full object-contain p-6" />
         </Reveal>
         <Reveal>
-          <h2 className="font-display text-[clamp(2rem,4.5vw,3.6rem)] font-light leading-[1.06] tracking-[-0.02em] text-flow">
+          <h2 className="font-display text-[clamp(2rem,4.5vw,3.6rem)] font-light leading-[1.06] tracking-[-0.02em] text-fir">
             Le reste se passe en magasin.
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">

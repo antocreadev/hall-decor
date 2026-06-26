@@ -18,6 +18,8 @@
   --color-patina-soft: #3f7799;
   --color-clay: #b0603f;
   --color-clay-soft: #c77f55;
+  --color-fir: #2f4a39;
+  --color-fir-soft: #5a7d63;
 
   --font-display: "Newsreader", Georgia, "Times New Roman", serif;
   --font-label: "Josefin Sans", ui-sans-serif, system-ui, sans-serif;
@@ -72,37 +74,6 @@ body {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-clay);
-}
-
-/* animated colour-flow gradient text — petrol ↔ terracotta */
-@keyframes text-flow {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-.text-flow {
-  background-image: linear-gradient(
-    100deg,
-    var(--color-patina),
-    var(--color-clay),
-    var(--color-clay-soft),
-    var(--color-patina-soft),
-    var(--color-patina)
-  );
-  background-size: 280% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: text-flow 14s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .text-flow {
-    animation: none !important;
-  }
 }
 
 .label {

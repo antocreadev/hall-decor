@@ -24,7 +24,7 @@ function Boutique() {
       {/* heading */}
       <header className="border-b border-line pb-10">
         <p className="eyebrow">Boutique · {String(list.length).padStart(2, "0")} articles</p>
-        <h1 className="font-display mt-5 text-[clamp(2.6rem,7vw,5.5rem)] font-light leading-[0.98] tracking-[-0.02em] text-flow">
+        <h1 className="font-display mt-5 text-[clamp(2.6rem,7vw,5.5rem)] font-light leading-[0.98] tracking-[-0.02em] text-fir">
           {collection ?? "Le linge de maison"}
         </h1>
         {collection && (
